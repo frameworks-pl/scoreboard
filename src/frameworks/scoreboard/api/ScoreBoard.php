@@ -6,7 +6,7 @@ interface ScoreBoard {
 
     public function startGame(Team $homeTeam, Team $guestTeam) : void;
 
-    public function finishGame() : void;
+    public function finishGame(Team $homeTeam, Team $guestTeam) : void;
 
     public function updateScore(GameScore $gameScore) : void;
 
@@ -16,5 +16,4 @@ interface ScoreBoard {
      * @return array<Game>
      */
     public function getScores() : array;
-
 }

@@ -45,6 +45,4 @@ class GameScore {
             && $this->guestTeamName === $gameScore->getGuestTeamName()
         );
     }
-
-
 }

@@ -1,11 +1,10 @@
 <?php
 namespace frameworks\scoreboard\impl;
 
-
-use frameworks\scoreboard\api\Game;
 use frameworks\scoreboard\api\ScoreBoard;
 use frameworks\scoreboard\api\Team;
 use frameworks\scoreboard\DTO\GameScore;
+use http\Exception\InvalidArgumentException;
 
 class ScoreBoardImpl implements ScoreBoard {
 
@@ -20,13 +19,17 @@ class ScoreBoardImpl implements ScoreBoard {
         $this->games[$game->getId()] = $game;
     }
 
-    public function finishGame() : void {
-        echo "Game finished";
+    public function finishGame(Team $homeTeam, Team $guestTeam) : void {
+        $id = GameImpl::buildId($homeTeam->getName(), $guestTeam->getName());
+        if (array_key_exists($id, $this->games)) {
+            unset($this->games[$id]);
+        } else {
+            throw new \InvalidArgumentException("Attempting to finish game that is not on the board");
+        }
     }
 
     public function getScore(Team $homeTeam, Team $guestTeam): GameScore {
 
-        //TODO: change to static method as it is used in two places at least
         $id = GameImpl::buildId($homeTeam->getName(), $guestTeam->getName());
         $game = $this->games[$id];
         return new GameScore($game->getHomeTeam()->getName(),
@@ -38,6 +41,10 @@ class ScoreBoardImpl implements ScoreBoard {
 
     public function updateScore(GameScore $gameScore) : void {
         $id = GameImpl::buildId($gameScore->getHomeTeamName(), $gameScore->getGuestTeamName());
+
+        if (!array_key_exists($id, $this->games)) {
+            throw new \InvalidArgumentException("The game does not exist.");
+        }
 
         $this->games[$id]->setScore($gameScore->getHomeTeamScore(),
             $gameScore->getGuestTeamScore());
@@ -62,5 +69,4 @@ class ScoreBoardImpl implements ScoreBoard {
 
         return $gameObjects;
     }
-
 }

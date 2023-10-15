@@ -18,5 +18,4 @@ interface Game {
     function getTotalScore() : int;
 
     function getCreationDateTime() : \DateTime;
-
 }
