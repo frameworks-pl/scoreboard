@@ -15,4 +15,8 @@ interface Game {
 
     function setScore(int $homeTeamScore, int $guestTeamScore) : void;
 
+    function getTotalScore() : int;
+
+    function getCreationDateTime() : \DateTime;
+
 }

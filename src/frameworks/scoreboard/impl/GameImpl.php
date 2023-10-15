@@ -14,7 +14,7 @@ class GameImpl implements Game
 
     protected $guestTeamScore;
 
-    protected $id;
+    protected $dateCreated;
 
     public function __construct(Team $homeTeam, Team $guestTeam) {
         $this->homeTeam = $homeTeam;
@@ -22,6 +22,8 @@ class GameImpl implements Game
 
         $this->homeTeamScore = 0;
         $this->guestTeamScore = 0;
+
+        $this->dateCreated = new \DateTime();
     }
 
     function getHomeTeam() : Team {
@@ -40,6 +42,10 @@ class GameImpl implements Game
         return $this->guestTeamScore;
     }
 
+    function getTotalScore(): int {
+        return $this->homeTeamScore + $this->getGuestTeamScore();
+    }
+
     public function setScore(int $homeTeamScore, int $guestTeamScore) : void {
         $this->homeTeamScore = $homeTeamScore;
         $this->guestTeamScore = $guestTeamScore;
@@ -51,6 +57,10 @@ class GameImpl implements Game
 
     public static function buildId(string $homeTeamName, string $guestTeamName) {
         return $homeTeamName . "_" . $guestTeamName;
+    }
+
+    public function getCreationDateTime() : \DateTime {
+        return $this->dateCreated;
     }
 
 }
