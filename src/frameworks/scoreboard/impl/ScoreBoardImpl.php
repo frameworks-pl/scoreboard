@@ -13,6 +13,9 @@ class ScoreBoardImpl implements ScoreBoard {
     protected $games = [];
 
     public function startGame(Team $homeTeam, Team $guestTeam) : void {
+        if ($homeTeam->getName() === $guestTeam->getName()) {
+            throw new \InvalidArgumentException("Team cannot play with itself.");
+        }
         $game = new GameImpl($homeTeam, $guestTeam);
         $this->games[$game->getId()] = $game;
     }

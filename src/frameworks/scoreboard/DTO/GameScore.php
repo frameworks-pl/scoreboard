@@ -13,6 +13,9 @@ class GameScore {
 
     public function __construct(string $homeTeamName, int $homeTeamScore, string $guestTeamName, int $guestTeamScore)
     {
+        if ($homeTeamScore < 0 || $guestTeamScore < 0) {
+            throw new \InvalidArgumentException("Score value must be greater or equal zero");
+        }
         $this->homeTeamName = $homeTeamName;
         $this->homeTeamScore = $homeTeamScore;
         $this->guestTeamName = $guestTeamName;
