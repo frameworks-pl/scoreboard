@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/8.0/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         processIsolation="true"
+         bootstrap="vendor/autoload.php">
+    <php>
+        <ini name="error_reporting" value="-1" />
+        <server name="KERNEL_DIR" value="app/" />
+        <env name="KERNEL_CLASS" value="AppKernel" />
+        <server name="PHPUNIT_BIN" value="./vendor/bin/phpunit" />
+    </php>
+
+    <testsuites>
+        <testsuite name="Project Test Suite">
+            <directory>test</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
