@@ -1,0 +1,21 @@
+{
+    "name": "frameworks/scoreboard",
+    "description": "Framework's implementation of ScoreBoard",
+    "type": "library",
+    "require": {
+    },
+    "require-dev": {
+      "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "frameworks\\": "src/frameworks"
+      }
+    },
+    "authors": [
+      {
+        "name": "Janusz Grabis",
+        "email": "janusz@frameworks.pl"
+      }
+    ]
+  }
