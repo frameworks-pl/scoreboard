@@ -24,7 +24,7 @@ Add following to your composer.json and run `composer install`:
 }
 </pre>
 
-##Usage
+## Usage
 
 ### Creating board
 <pre>
