@@ -4,7 +4,6 @@ namespace frameworks\scoreboard\impl;
 use frameworks\scoreboard\api\ScoreBoard;
 use frameworks\scoreboard\api\Team;
 use frameworks\scoreboard\DTO\GameScore;
-use http\Exception\InvalidArgumentException;
 
 class ScoreBoardImpl implements ScoreBoard {
 

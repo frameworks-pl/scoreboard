@@ -2,7 +2,6 @@
 namespace frameworks\scoreboard\impl;
 
 use frameworks\scoreboard\api\Team;
-use http\Exception\InvalidArgumentException;
 
 class TeamImpl implements Team {
 
