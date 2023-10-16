@@ -26,7 +26,7 @@ Add following to your composer.json and run `composer install`:
 
 ## Usage
 
-### Creating board
+### Creating a board
 <pre>
 use frameworks\scoreboard\impl\ScoreBoardImpl;
 $scoreBoard = new ScoreBoardImpl();
@@ -60,7 +60,7 @@ foreach ($scores as $score) {
 
 ### Finishing a game
 <pre>
-$scoreBoard->startGame($polandTeam, $germanyTeam);
+$scoreBoard->finishGame($polandTeam, $germanyTeam);
 </pre>
 
 
