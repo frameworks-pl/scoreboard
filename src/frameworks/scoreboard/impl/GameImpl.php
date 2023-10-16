@@ -6,14 +6,19 @@ use frameworks\scoreboard\api\Team;
 
 class GameImpl implements Game
 {
+    /** @var Team */
     protected $homeTeam;
 
+    /** @var int */
     protected $homeTeamScore;
 
+    /** @var Team */
     protected $guestTeam;
 
+    /** @var int */
     protected $guestTeamScore;
 
+    /** @var \DateTime */
     protected $dateCreated;
 
     public function __construct(Team $homeTeam, Team $guestTeam) {
@@ -55,7 +60,7 @@ class GameImpl implements Game
         return self::buildId($this->homeTeam->getName(),$this->guestTeam->getName());
     }
 
-    public static function buildId(string $homeTeamName, string $guestTeamName) {
+    public static function buildId(string $homeTeamName, string $guestTeamName) : string {
         return $homeTeamName . "_" . $guestTeamName;
     }
 

@@ -3,9 +3,11 @@
     "description": "Framework's implementation of ScoreBoard",
     "type": "library",
     "require": {
+      "php": ">=7.2.0"
     },
     "require-dev": {
-      "phpunit/phpunit": "^8.0"
+      "phpunit/phpunit": "^8.0",
+        "vimeo/psalm": "^4.30"
     },
     "autoload": {
       "psr-4": {

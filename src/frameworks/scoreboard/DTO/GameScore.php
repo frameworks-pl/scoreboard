@@ -3,12 +3,16 @@ namespace frameworks\scoreboard\DTO;
 
 class GameScore {
 
+    /** @var string */
     protected $homeTeamName;
 
+    /** @var int */
     protected $homeTeamScore;
 
+    /** @var string */
     protected $guestTeamName;
 
+    /** @var int */
     protected $guestTeamScore;
 
     public function __construct(string $homeTeamName, int $homeTeamScore, string $guestTeamName, int $guestTeamScore)
@@ -22,23 +26,23 @@ class GameScore {
         $this->guestTeamScore = $guestTeamScore;
     }
 
-    public function getHomeTeamName() {
+    public function getHomeTeamName() : string {
         return $this->homeTeamName;
     }
 
-    public function getHomeTeamScore() {
+    public function getHomeTeamScore() : int {
         return $this->homeTeamScore;
     }
 
-    public function getGuestTeamName() {
+    public function getGuestTeamName() : string {
         return $this->guestTeamName;
     }
 
-    public function getGuestTeamScore() {
+    public function getGuestTeamScore() : int {
         return $this->guestTeamScore;
     }
 
-    public function equalsTo(GameScore $gameScore) {
+    public function equalsTo(GameScore $gameScore) : bool {
         return ($this->homeTeamName === $gameScore->getHomeTeamName()
             && $this->homeTeamScore === $gameScore->getHomeTeamScore()
             && $this->guestTeamName === $gameScore->getGuestTeamName()

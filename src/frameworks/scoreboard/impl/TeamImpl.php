@@ -5,6 +5,7 @@ use frameworks\scoreboard\api\Team;
 
 class TeamImpl implements Team {
 
+    /** @var string */
     protected $teamName;
 
     public function __construct(string $teamName) {

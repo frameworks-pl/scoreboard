@@ -27,7 +27,7 @@ interface Game {
     /**
      * Returns current score in the game for home team
      *
-     * @return Team
+     * @return int
      */
     function getHomeTeamScore() : int;
 
